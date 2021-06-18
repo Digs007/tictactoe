@@ -1,2 +1,0 @@
-# tictactoe.github.io
-Game
