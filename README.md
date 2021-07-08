@@ -72,10 +72,8 @@ else if minimizer has won:
 // Calling the function for the first time.
 findBestMove(char board[3][3])
 
-```
 
 ## Minimax Algorithm Visualisation
 
 ![alt text](https://github.com/GeorgeSeif/Tic-Tac-Toe-AI/blob/master/minimax_vis.png)
 
-```
