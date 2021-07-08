@@ -16,36 +16,66 @@ A simple version of the minimax algorithm, stated below, deals with games such a
 
 ## Pseudocode
 
-```
-function minimax(node, depth, isMaximizingPlayer, alpha, beta):
+findBestMove(board) returns the best move the maximizer can make.
 
-    if node is a leaf node :
-        return value of the node
+```
+function findBestMove(board):
+    bestMove = NULL
+    for each move in board :
+        if current move is better than bestMove
+            bestMove = current move
+    return bestMove
+```
+
+To check whether or not the current move is better than the best move we take the help of minimax() function which will consider all the possible ways the game can go and returns the best value for that move, assuming the opponent also plays optimally
+
+```
+function minimax(board, depth, isMaximizingPlayer):
+    if current board state is a terminal state :
+        return value of the board
 
     if isMaximizingPlayer :
         bestVal = -INFINITY
-        for each child node :
-            value = minimax(node, depth+1, false, alpha, beta)
+        for each move in board :
+            value = minimax(board, depth+1, false)
             bestVal = max( bestVal, value)
-            alpha = max( alpha, bestVal)
-            if beta <= alpha:
-                break
         return bestVal
 
     else :
         bestVal = +INFINITY
-        for each child node :
-            value = minimax(node, depth+1, true, alpha, beta)
+        for each move in board :
+            value = minimax(board, depth+1, true)
             bestVal = min( bestVal, value)
-            beta = min( beta, bestVal)
-            if beta <= alpha:
-                break
         return bestVal
+```
+
+To check whether the game is over and to make sure there are no moves left we use isMovesLeft() function.
+
+```
+function isMovesLeft(board):
+    for each cell in board:
+        if current cell is empty:
+            return true
+    return false
+```
+
+Making our AI smarter :
+
+```
+if maximizer has won:
+    return WIN_SCORE – depth
+
+else if minimizer has won:
+    return LOOSE_SCORE + depth
+```
 
 // Calling the function for the first time.
-minimax(0, 0, true, -INFINITY, +INFINITY)
+findBestMove(char board[3][3])
+
 ```
 
 ## Minimax Algorithm Visualisation
 
 ![alt text](https://github.com/GeorgeSeif/Tic-Tac-Toe-AI/blob/master/minimax_vis.png)
+
+```
