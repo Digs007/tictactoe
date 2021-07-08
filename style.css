@@ -1,3 +1,6 @@
+* {
+  background-color: grey;
+}
 .container-out {
   font-family: "Fira Sans", sans-serif;
   padding: 15px 0;
@@ -52,4 +55,26 @@
 
 .table-container button:focus {
   outline: none;
+}
+
+.container-main {
+  font-family: "Fira Sans", sans-serif;
+  height: 100vh;
+  width: 100%;
+  background-color: #335f5f;
+}
+.inner {
+  background-color: #caa97e;
+  height: 350px;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.inner .inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
